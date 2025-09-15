@@ -12,7 +12,7 @@ function loadSynonyms(language: 'english' | 'hebrew' = 'english'): YotoSynonyms 
 
   try {
     const filePath = language === 'hebrew'
-      ? path.resolve('./yoto_icons_hebrew.json')
+      ? path.resolve('./synonyms/hebrew.json')
       : path.resolve(CONFIG.YOTO_ICONS_FILE);
     const content = fs.readFileSync(filePath, 'utf-8');
     synonymsCache = JSON.parse(content);

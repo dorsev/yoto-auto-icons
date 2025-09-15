@@ -89,16 +89,17 @@ yoto-auto-icons/
 ├── data/
 │   ├── yoto_icon_ids_hebrew.json  # Hebrew icon mappings
 │   └── yoto_icon_ids.json         # English icon mappings
+├── synonyms/
+│   ├── english.json               # English keyword synonyms
+│   └── hebrew.json                # Hebrew keyword synonyms
 ├── icon_ids.txt                   # 352 Yoto icon IDs
-├── yoto_icons_hebrew.json         # Hebrew keyword synonyms
-├── yoto_icons.json                # English keyword synonyms
 └── package.json                   # NPM scripts & dependencies
 ```
 
 ## Configuration Files
 
-### `yoto_icons.json` - Keyword Synonyms
-Maps keywords to arrays of synonyms in multiple languages:
+### `synonyms/` - Keyword Synonyms
+Maps keywords to arrays of synonyms for each language:
 
 ```json
 {

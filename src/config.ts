@@ -3,7 +3,7 @@ import { LanguagePrompts } from './types';
 export const CONFIG = {
   // File paths
   ICON_IDS_FILE: './icon_ids.txt',
-  YOTO_ICONS_FILE: './yoto_icons.json',
+  YOTO_ICONS_FILE: './synonyms/english.json',
 
   // API endpoints
   YOTO_ICON_URL: 'https://media-secure-v2.api.yotoplay.com/icons',
