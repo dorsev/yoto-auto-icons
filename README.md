@@ -185,6 +185,18 @@ Successfully processed Hebrew children's audiobook playlist (61 tracks) with 95%
 ❌ Failed: 0
 ```
 
+## ⚠️ Important Disclaimers
+
+**🚧 Work in Progress**: This is an experimental tool under active development. Features may change and bugs may exist.
+
+**⚠️ Use at Your Own Risk**: This tool modifies your Yoto playlists. Always run with `--dry` flag first to preview changes. The authors are not responsible for any data loss or unexpected modifications.
+
+**🏢 Third-Party Tool**: This is an unofficial, community-created tool. It is not affiliated with, endorsed by, or supported by Yoto. All Yoto trademarks, API endpoints, and related intellectual property belong to Yoto.
+
+**🔑 API Usage**: You are responsible for your own API keys and bearer tokens. Ensure you comply with OpenAI and Yoto's terms of service.
+
+**📊 Rate Limits**: The tool implements conservative rate limiting, but you are responsible for monitoring your API usage and costs.
+
 ## Requirements
 
 - Node.js 16+
