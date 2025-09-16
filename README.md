@@ -6,30 +6,44 @@ Automatically assign Yoto playlist icons based on track titles using OpenAI Visi
 
 - 🔍 **Plan Mode**: Uses OpenAI Vision to map 352 Yoto icon IDs to semantic keywords
 - 🎯 **Apply Mode**: Intelligently assigns icons to playlist tracks with AI fallback
-- 🌍 **Multi-language**: Full support for English and Hebrew with RTL text handling
+- 📊 **Report Mode**: Analyzes missing icons and shows improvement potential
+- 🎨 **Generate Mode**: Creates custom icons for missing keywords (framework ready)
+- 🌍 **Multi-language**: Full support for English and Hebrew with pure language synonyms
 - 📊 **Smart Matching**: Exact → Partial → AI semantic matching with 95%+ success rates
 - 🧪 **Safe Testing**: Dry-run mode to preview changes before applying
 - ⚡ **Bulk Updates**: Efficient API calls with proper rate limiting
 
-## Quick Start
+## Complete Workflow
+
+### Step-by-Step Process
 
 ```bash
-# 1. Install dependencies
+# Step 1: Install dependencies and configure environment
 npm install
-
-# 2. Set up environment variables
 export OPENAI_API_KEY="your_openai_api_key_here"
 export BEARER="your_yoto_bearer_token_here"
 
-# 3. Run Plan Mode (generate icon mappings)
+# Step 2: Generate icon mappings from Yoto's existing icons
 npm run plan -- --bearer $BEARER --language hebrew
 
-# 4. Run Apply Mode (assign icons to playlist)
+# Step 3: Identify missing icons needed for your playlists
+npm run report -- --bearer $BEARER --language hebrew
+
+# Step 4: Generate missing icons with AI (saves to generated-icons/)
+npm run generate -- --language hebrew --limit 10
+
+# Step 5: MANUALLY upload generated icons to Yoto via web interface
+# (See "Manual Upload Process" section below)
+
+# Step 6: Update mappings with new icon IDs
+# (See "Updating Mappings" section below)
+
+# Step 7: Apply icons to your playlist
 npm run apply -- --bearer $BEARER --playlist gkLcn --language hebrew --dry
 npm run apply -- --bearer $BEARER --playlist gkLcn --language hebrew
 ```
 
-## Two Modes
+## Four Modes
 
 ### 🔍 Plan Mode
 Maps Yoto icon IDs to semantic keywords using OpenAI Vision API.
@@ -74,6 +88,45 @@ npm run apply -- --bearer $BEARER --playlist $CARD_ID --language hebrew
 - 🤖 **AI matches**: OpenAI semantic matching for unmatched tracks
 - 💡 **Suggestions**: Shows potential alternatives for manual review
 - 📊 **Comprehensive stats**: Detailed success rates and coverage analysis
+
+### 📊 **Report Mode**
+Analyzes missing icons and prioritizes generation needs.
+
+```bash
+# Generate missing icons report
+npm run report -- --bearer $BEARER --language hebrew
+
+# Analyze specific playlist gaps
+npm run report -- --bearer $BEARER --playlist $CARD_ID --language hebrew
+```
+
+**Shows**:
+- 📈 Current coverage statistics
+- 🔥 Priority missing icons by usage frequency
+- 🎯 Potential success rate improvements
+
+### 🎨 **Generate Mode**
+Creates custom icons for missing keywords using DALL-E 3.
+
+```bash
+# Generate all missing icons (saves to generated-icons/)
+npm run generate -- --language hebrew
+
+# Generate specific icons only
+npm run generate -- --keywords "בלון,טרקטור" --dry
+
+# Generate with limit
+npm run generate -- --language hebrew --limit 5
+```
+
+**Features**:
+- 🎨 AI-powered icon generation using DALL-E 3
+- 📁 Saves icons to `generated-icons/` directory
+- 🧪 Dry-run testing support
+- 🌍 Multi-language support (English/Hebrew)
+- 🎯 Custom keyword targeting
+
+**Note**: Generated icons require manual upload through the Yoto web interface and manual mapping updates.
 
 ## File Structure
 
@@ -131,16 +184,25 @@ _WWpLHoOj6iqeREcGkJnGlsis2QSF6znM0UPFdXTjf8
 
 ## Examples
 
-### Workflow Example
+### Complete Workflow Example
 ```bash
-# 1. Generate icon mappings (352 icons)
-npm run plan -- --bearer $BEARER --language english
+# 1. Generate icon mappings from existing Yoto icons
+npm run plan -- --bearer $BEARER --language hebrew
 
-# 2. Preview playlist changes
-npm run apply -- --bearer $BEARER --playlist gkLcn --dry
+# 2. Check what icons are missing
+npm run report -- --bearer $BEARER --language hebrew
 
-# 3. Apply changes
-npm run apply -- --bearer $BEARER --playlist gkLcn
+# 3. Generate missing icons (saves to generated-icons/)
+npm run generate -- --language hebrew --limit 10
+
+# 4. Manually upload generated icons via Yoto web interface
+# 5. Update mappings with new icon IDs (see Manual Upload Process below)
+
+# 6. Preview playlist changes
+npm run apply -- --bearer $BEARER --playlist gkLcn --language hebrew --dry
+
+# 7. Apply changes
+npm run apply -- --bearer $BEARER --playlist gkLcn --language hebrew
 ```
 
 ### Real-World Success Story

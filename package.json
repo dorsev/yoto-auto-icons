@@ -6,6 +6,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "plan": "ts-node src/plan.ts",
     "apply": "ts-node src/apply.ts",
+    "report": "ts-node src/report.ts",
+    "generate": "ts-node src/generate.ts",
     "build": "tsc"
   },
   "keywords": [],
