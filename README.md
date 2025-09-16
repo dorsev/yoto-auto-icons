@@ -264,8 +264,20 @@ Successfully processed Hebrew children's audiobook playlist (61 tracks) with 95%
 
 - Node.js 16+
 - TypeScript 5+
-- OpenAI API key (for Plan Mode)
-- Yoto bearer token (for both modes)
+- OpenAI API key (for Plan Mode and Generate Mode)
+- Yoto bearer token (for Plan and Apply modes)
+
+## Future Work
+
+### Automatic Icon Upload
+Currently, generated icons must be manually uploaded through the Yoto web interface due to OAuth authentication complexities. Future improvements could include:
+
+- **Direct Cloud Storage**: Upload generated icons to a public cloud storage (AWS S3, Google Cloud Storage) with automatic URL generation
+- **Image Hosting Integration**: Integration with image hosting services (Imgur, Cloudinary) for direct sharing
+- **OAuth Integration**: Proper OAuth Device Code Flow implementation for direct Yoto API uploads
+- **Web Interface**: Simple web UI for drag-and-drop icon upload and mapping management
+
+These enhancements would eliminate the manual upload step and provide a fully automated icon generation and assignment workflow.
 
 ## Troubleshooting
 
